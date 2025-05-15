@@ -369,8 +369,9 @@ span{
 .timeline-content h3{
     font-size: 20px;
     color: white;
-    margin: 0 0 10px;
-    font-weight: 500;
+    margin: 0 0 20px;
+    font-weight: 600;
+    text-align: center;
 }
 
 .timeline-content p{
@@ -378,6 +379,7 @@ span{
     font-size: 16px;
     font-weight: 300;
     line-height: 22px;
+    text-align: justify;
 }
 
 ::-webkit-scrollbar{
@@ -397,61 +399,67 @@ span{
     background-color: var(--bg-color);
 }
 
-.projects{
+.projects {
     background: var(--bg-color);
     color: black;
 }
 
-.projects h2{
+.projects h2 {
     margin-bottom: 5rem;
     color: white;
 }
 
-.projects-container{
+.projects-container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 2.5rem;
 }
 
-.project-box{
+.project-box {
     background-color: var(--main-color);
-    height: 300px;
+    min-height: 350px; /* Substitui height por min-height */
     border-radius: 3rem;
     border: 5px solid transparent;
     cursor: pointer;
     transition: 0.4s ease-in-out;
+    background-image: url('back.webp');
+    background-position: center;
+    color: white;
+    display: flex; /* Adiciona flex para centralizar o conteúdo */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
 }
 
-.project-box:hover{
+.project-box:hover {
     background: white;
     color: black;
-    border: 5px solid var(--main-color);
+    border: 3px solid var(--main-color);
     transform: scale(1.03);
 }
 
-.project-box .project-info{
+.project-info {
     display: flex;
     flex-direction: column;
-    text-align: left;
-    max-height: 200px;
-    justify-content: left;
-    align-items: baseline;
-    padding: 5rem 5rem;
+    text-align: center;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    padding: 2rem 5rem; /* Ajusta o padding para menos espaço vertical */
+    flex-grow: 1; /* Permite que o conteúdo ocupe o espaço necessário */
 }
 
-.project-info h4{
+.project-info h4 {
     font-size: 3rem;
     font-weight: 800;
-    line-height: 2;
+    line-height: 1.2; /* Ajusta para melhor legibilidade */
+    padding-bottom: 20px;
+    text-align: justify;
 }
 
 .project-info p {
-    font-size: 1.6rem;
-    font-weight: 600;
-    max-height: 100px;
+    font-size: 1.8rem;
+    font-weight: 540;
     line-height: 1.7;
-    margin: auto;
+    text-align: justify;
 }
 
 .contact{
@@ -648,8 +656,14 @@ span{
     .home-img img{
         width: 56vw;
     }
+    .project-box{
+        height: 500px;
+    }
     .projects h2{
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
+    }
+    .project-info h4{
+    font-size: 2.4rem;
     }
     .projects-container{
         grid-template-columns: repeat(1,1fr);
