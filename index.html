@@ -16,7 +16,7 @@
             <i class='bx bx-menu' id="menu-icon"></i>
 
             <nav class="navbar">
-                <a href="#home" class="active">Home</a>
+                <a href="#home">Home</a>
                 <a href="#education">Trajetória</a>
                 <a href="#projects">Projetos</a>
                 <a href="#contact">Contato</a>
@@ -127,53 +127,23 @@
         </div>
     </section>
 
-<section class="contact" id="contact">
+    <section class="contact" id="contact">
         <h2 class="heading">Fale <span>Comigo</span></h2>
-        <form id="contact-form">
+
+        <form id="contact-form" onsubmit="sendWhats(event)">
             <div class="input-group">
                 <div class="input-box">
-                    <input type="text" name="full_name" placeholder="Nome Completo" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="input-box">
-                    <input type="tel" name="phone" placeholder="Telefone">
-                    <input type="text" name="subject" placeholder="Assunto" required>
+                    <input type="text" name="full_name" placeholder="Nome" required id="name">
                 </div>
             </div>
+
             <div class="input-group-2">
-                <textarea name="message" cols="30" rows="10" placeholder="Sua Mensagem Aqui" required></textarea>
-                <input type="submit" value="Enviar Mensagem" class="btn">
+                <textarea name="message" cols="30" rows="10" placeholder="Sua Mensagem Aqui" required id="message"></textarea>
+                <input type="submit" value="Enviar WhatsApp" class="btn">
             </div>
         </form>
+
     </section>
-
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        // Initialize EmailJS
-        emailjs.init("your_user_id"); // Replace with your User ID
-
-        // Handle form submission
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const formData = {
-                full_name: this.full_name.value,
-                email: this.email.value,
-                phone: this.phone.value,
-                subject: this.subject.value,
-                message: this.message.value
-            };
-
-            emailjs.send('your_service_id', 'your_template_id', formData)
-                .then(function(response) {
-                    alert('Mensagem enviada com sucesso!');
-                    document.getElementById('contact-form').reset();
-                }, function(error) {
-                    alert('Erro ao enviar a mensagem: ' + JSON.stringify(error));
-                });
-        });
-    </script>
     
 
     <footer class="footer">
@@ -185,9 +155,6 @@
                 <i class='bx bxl-whatsapp-square'></i></a>
         </div>
         <ul class="list">
-            <li>
-                <a href="#">FAQ</a>
-            </li>
 
             <li>
                 <a href="#projects">Projetos</a>

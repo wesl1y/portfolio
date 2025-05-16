@@ -1,25 +1,26 @@
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+const menuIcon = document.querySelector('#menu-icon');
+const nav = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.navbar a');
 
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
-
-        if(top >= offset && top < offset + height){
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ' ]').classList.add('active');
-            });
-        }
-    });
+function sendWhats(event) {
+    event.preventDefault();
+    const nome = document.getElementById('name').value;
+    const message = document.getElementById('message').value;
+    const phone = '5582981739990';
+    const text = `Olá, me chamo ${nome}, ${message}`;
+    const msgFormat = encodeURIComponent(text);
+    const url = `https://wa.me/${phone}?text=${msgFormat}`;
+    window.open(url, '_blank');
 }
 
-menuIcon.onclick = () => {
+menuIcon.addEventListener('click', () => {
+    nav.classList.toggle('active');
     menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-}
+});
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
+    });
+});
